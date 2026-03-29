@@ -55,10 +55,10 @@ if uploaded:
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("Original")
-        st.image(img_pil, use_column_width=True)
+        st.image(img_pil, use_container_width=True)
     with col2:
         st.subheader(f"Compressed ({keep*100:.0f}% data)")
-        st.image(to_pil(compressed), use_column_width=True)
+        st.image(to_pil(compressed), use_container_width=True)
 
     # Frequency spectrum
     if show_spectrum:
@@ -77,6 +77,7 @@ if uploaded:
 else:
     st.info("👈 Upload an image from the sidebar to begin")
     st.subheader("📊 Quality vs Compression Curve")
+    st.stop()
 fractions = [0.01, 0.05, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0]
 psnr_vals = []
 for f in fractions:
